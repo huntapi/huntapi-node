@@ -1,0 +1,62 @@
+{
+  "name": "@huntapi/sdk",
+  "version": "0.1.0",
+  "description": "Official Node.js and TypeScript SDK for the HuntAPI media download API.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "node -e \"require('node:fs').rmSync('dist', { force: true, recursive: true })\"",
+    "format:check": "prettier --check .",
+    "prepack": "npm run clean && npm run build",
+    "test": "tsx --test test/*.test.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huntapi/huntapi-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/huntapi/huntapi-node/issues"
+  },
+  "homepage": "https://github.com/huntapi/huntapi-node#readme",
+  "keywords": [
+    "video-download-api",
+    "audio-download-api",
+    "media-metadata",
+    "async-api",
+    "api",
+    "sdk",
+    "nodejs",
+    "typescript",
+    "huntapi"
+  ],
+  "author": "HuntAPI",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
